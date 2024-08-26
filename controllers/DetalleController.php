@@ -15,18 +15,12 @@ class DetalleController {
     public static function detalleVentasAPI()
     {
         try {
-            $sql = "SELECT 
-                    c.cliente_id, 
-                    c.cliente_nombre,
-                    COUNT(v.venta_id) AS total_ventas
-                FROM 
-                    cliente c
-                JOIN 
-                    ventas v ON c.cliente_id = v.venta_cliente
-                GROUP BY 
-                    c.cliente_id, c.cliente_nombre
-                ORDER BY 
-                    total_ventas DESC;";
+            $sql = "SELECT cliente_id, cliente_nombre,
+                    COUNT(venta_id) AS total_ventas
+                    FROM cliente
+                    JOIN ventas ON cliente_id = venta_cliente
+                    GROUP BY cliente_id, cliente_nombre
+                    ORDER BY total_ventas DESC";
 
             $datos = Cliente::fetchArray($sql);
             echo json_encode($datos);
