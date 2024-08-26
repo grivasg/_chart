@@ -5,7 +5,7 @@
 
 <div class="row justify-content-center">
     <div class="col-lg-6">
-<button type="button" id="actualizar" class="btn btn-success w-20"> Actualizar</button>
+<button type="button" id="actualizar" class="btn btn-success w-100"> Actualizar</button>
     </div>
 </div>
 
